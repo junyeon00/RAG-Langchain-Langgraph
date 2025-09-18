@@ -14,7 +14,7 @@ from langchain.tools.retriever import create_retriever_tool
 load_dotenv()
 
 # 1) PDF 파일 읽기 
-pdf_path = "/mnt/c/Users/user/Downloads/ransomware.pdf"  
+pdf_path = "**insert document path**"
 reader = PdfReader(pdf_path)
 
 documents = []
