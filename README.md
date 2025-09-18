@@ -58,36 +58,37 @@
 
 ### 1️⃣ LangChain 버전
 [사용자 입력]
-        ↓
+      ↓
 [LLM 호출 (ChatClovaX)]
-        ↓
+      ↓
 [Retriever Tool 필요 판단]
-   ┌─────────────┬─────────────┐
-   ↓                           ↓
-[필요함]                   [필요 없음]
-   ↓                           ↓
-[Retriever 실행]     →   [LLM이 직접 응답]
-   ↓
+     ┌──────────────┴──────────────┐
+     ↓                             ↓
+[필요함]                      [필요 없음]
+     ↓                             ↓
+[Retriever 실행]             [LLM이 직접 응답]
+     ↓
 [검색 결과를 LLM에 전달]
-   ↓
+     ↓
 [최종 응답 생성]
+
 위 흐름은 LangChain에서 Retriever Tool을 사용하는 단순 구조를 보여줍니다.
 
 ### 1️⃣ LangGraph 버전
 [사용자 입력]
-        ↓
+      ↓
 [llm_node: Tool 호출 판단]
-        ↓
-   ┌─────────────┬─────────────┐
-   ↓                           ↓
-[Yes]                      [No]
-   ↓                           ↓
-[tool_node: Retriever 실행]  →  [응답 생성 및 종료]
-   ↓
-[retrieved docs 반환 → 다시 llm_node로]
-        ↓
+      ↓
+┌──────┴──────┐
+↓             ↓
+[Yes]         [No]
+↓             ↓
+[tool_node: Retriever 실행]     [응답 생성 및 종료]
+      ↓
+[retrieved docs 반환]
+      ↓
+[다시 llm_node로 이동]
+      ↓
 [최종 응답 생성]
 
-
 LangGraph 흐름은 상태 노드 기반의 유연한 반복 구조를 제공합니다.
----
