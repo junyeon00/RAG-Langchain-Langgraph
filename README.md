@@ -65,7 +65,7 @@ flowchart TD
     C -- 예 --> D[Retriever 실행]
     D --> E[LLM에게 결과 전달]
     E --> F[최종 응답 생성]
-    C -- 아니오 --> F
+    C -- 아니오 --> F[최종응답]
 ```
 
 > 위 흐름은 **LangChain**에서 Retriever Tool을 사용하는 단순 구조를 보여줍니다.
