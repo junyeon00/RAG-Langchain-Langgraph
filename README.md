@@ -56,15 +56,25 @@
 
 ## ✅ 예시 흐름도
 
-사용자 입력
-↓
-llm_node
-↓
-tool 필요 여부 판단 ────┐
-↓ │
-tool_node (검색) │
-↓ │
-최종 응답 ←──────────┘
+### 1️⃣ LangChain 버전
+```mermaid
+graph TD
+    A[사용자 입력] --> B[LLM 호출 (ChatClovaX)]
+    B --> C{Retriever Tool 필요?}
+    C -- Yes --> D[Tool 호출 (Retriever 실행)]
+    D --> E[Tool 결과를 LLM에 전달]
+    E --> F[최종 응답 생성]
+    C -- No --> F[LLM이 직접 응답]
+
+### 1️⃣ LangGraph 버전
+```mermaid
+graph TD
+    A[사용자 입력] --> B[llm_node: LLM Tool 판단]
+    B --> C{Tool 호출?}
+    C -- Yes --> D[tool_node: Retriever 실행]
+    D --> E[retrieved docs 반환]
+    E --> B
+    C -- No --> F[응답 생성 및 종료]
 
 
 ---
