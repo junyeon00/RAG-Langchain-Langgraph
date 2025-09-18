@@ -60,12 +60,12 @@
 
 ```mermaid
 flowchart TD
-    A[사용자 입력] --> B[LLM 호출 (ChatClovaX)]
+    A[사용자 입력] --> B[LLM 호출 ChatClovaX]
     B --> C{Retriever Tool 필요?}
-    C -- 예 --> D[Retriever 실행]
+    C -->|예| D[Retriever 실행]
     D --> E[LLM에게 결과 전달]
     E --> F[최종 응답 생성]
-    C -- 아니오 --> F[최종응답]
+    C -->|아니오| F
 ```
 
 > 위 흐름은 **LangChain**에서 Retriever Tool을 사용하는 단순 구조를 보여줍니다.
@@ -76,10 +76,10 @@ flowchart TD
 flowchart TD
     A[사용자 입력] --> B[llm_node: Tool 판단]
     B --> C{Tool 호출?}
-    C -- 예 --> D[tool_node: Retriever 실행]
+    C -->|예| D[tool_node: Retriever 실행]
     D --> E[retrieved docs 반환]
     E --> B
-    C -- 아니오 --> F[최종 응답]
+    C -->|아니오| F[최종 응답]
 ```
 
 > LangGraph 흐름은 **상태 노드 기반의 유연한 반복 구조**를 제공합니다.
