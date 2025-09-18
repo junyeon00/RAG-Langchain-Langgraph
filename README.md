@@ -54,7 +54,7 @@
 
 ---
 
-## ✅ 예시 흐름도
+## ✅ 흐름도
 
 ### 1️⃣ LangChain 버전
 ```mermaid
@@ -66,6 +66,8 @@ graph TD
     E --> F[최종 응답 생성]
     C -- No --> F[LLM이 직접 응답]
 
+위 흐름은 LangChain에서 Retriever Tool을 사용하는 단순 구조를 보여줍니다.
+
 ### 1️⃣ LangGraph 버전
 ```mermaid
 graph TD
@@ -76,5 +78,5 @@ graph TD
     E --> B
     C -- No --> F[응답 생성 및 종료]
 
-
+LangGraph 흐름은 상태 노드 기반의 유연한 반복 구조를 제공합니다.
 ---
